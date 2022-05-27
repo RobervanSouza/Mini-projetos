@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=B612+Mono:wght@400;700&display=swap');
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'B612 Mono', monospace;
+
+}
+header {
+    padding: 1rem;
+    background-color: red;
+}
+
+header h1 {
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+}
+main{
+    margin: 0 10rem 0 10rem;
+
+
+}
+
+section#cards{
+    flex-wrap: wrap;
+    display: flex; /* cada item do lado do outro*/
+    justify-content: space-evenly;
+    margin-top: 2rem;
+    
+}
+
+section#cards div.card{
+    width: 20rem;
+    box-shadow: inset 0 0 1em gold, 0 0 1em red;
+    padding: 0.5rem;
+    
+}
+
+
+
+section#cards h2{
+    width: 100%;
+    text-align: center;
+    margin: 3rem;
+
+}
+
+
+section#cards div.card img{
+    width: 100%;
+}
+
+
+section#cards div.card h3{
+      margin-bottom: 1rem;    
+
+}
+
+section#cards div.card p.descricao{
+    margin-bottom: 1rem;
+}
+
+
+section#cards div.card a{
+    padding: 1rem;
+    width: 25%;
+    display: flex;
+    justify-content: center;/* centralizar nome */
+    margin: 0 auto;
+    font-size: 1rem;
+    background-color: rgb(137, 196, 235);
+    border: solid 1px black;
+    color:  black;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 2rem;
+}
+section#cards div.card a:hover{
+    background-color: yellow;
+    color: red;
+    border:  solid 2px blue;
+}
+
+section#cadastro {
+    display: flex;
+    justify-content: center;
+
+    padding: 5rem;
+}
+section#cadastro img.imagen {
+    width: 50%;
+    
+}
+
+section#cadastro h2{
+
+     width: 100%;
+     text-align: center;
+     padding-bottom: 5rem;
+     color: blue;
+}
+
+section#cadastro  form {
+     width: 100%;
+}
+
+section#cadastro  form input{
+    width: 100%;
+    padding: .6rem;
+    font-size: 1rem;
+    outline: none;
+    border: solid 2px green;
+    margin: 0 1rem 1rem 1rem;
+}
+
+section#cadastro form label{
+    
+    margin: 1rem;
+    color: red;
+}
+
+section#cadastro  form button{
+    
+    padding: 1rem 4rem 1rem 4rem;
+    width: 29%;
+    display: flex;
+    justify-content: center;/* centralizar nome */
+    margin: 0 auto;
+    font-size: 1rem;
+    text-align: center;
+    background-color: rgb(137, 196, 235);
+    border: solid 1px  red;
+    color: red;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    
+
+}
+section#cadastro  form button:hover{
+    background-color: yellow;
+    color: black;
+}
