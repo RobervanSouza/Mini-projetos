@@ -1,67 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-Br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css"> <!--CHAMA O CSS-->
+    <title>Pokedex</title>
 </head>
 <body>
-    <header>
-        <h1>Pokedex</h1>
+    <nav> <!--   -->
+       <ul> <!--   -->
+           <img src="/img/pokebola.png" alt=""><!-- imagem do menu  -->
+           <li><a href="/"><h1>Pokédex</h1></a> </li><!--o h1 e melhor para pesquisa do google-->
+           <li>  <a href="#cadastro">Cadastro</a>  </li>
+           <li> <a href="#cards"> Pokemons </a></li>
+       </ul>
+    </nav>
+
+    <header> 
+        <img src="/img/baner.png" alt="">
     </header>
      <main>
-        <section id="cadastro">
+        <section id="cadastro"> <!--caminho para o CSS o ID serve para todos os itens de uma div-->
 
 
-            <img  class="imagen"  src="/img/pokedex.png" alt="">
+            <img  class="imagen"  src="/img/pokedex.png" alt=""> <!-- imagem da pokedex.  a CLASS serve para um item em especifico-->
 
             <div>
 
-                <% if ( pokemon == undefined) { %> 
+                <% if ( pokemon == undefined) { %>  <!-- MONSTRA A PAGINA PRINCIPAL DO POKEMON  -->
 
                     <h2>Cadastre um novo pokemon</h2>
         
-                    <form action="/creat" method="post">
+                    <form action="/creat" method="post"> <!--o FORM esta recebendo as informações que vem do array-->
+                        <!-- o ACTION manda a requisição que foi feita que estão no form. "/CEAT" >  manda os dados para uma rota do back end.(index.js) resumindo manda uma requisição atraves da "/creat" recebe os dados e manda atraves do o methodo "post"
+                         >> -->
         
                          
-                        <label for="nome"> Nome:</label>
+                        <label for="nome"> Nome:</label><!--    -->
                         <input type="text" id="nome" name="nome">
         
                         <label for="descricao"> Descrição:</label>
-                        <input type="text" id="descricao" name="descricao">
+                        <input type="text" id="descricao" name="descricao"><!--    -->
         
-                        <label for="tipo"> Tipo:</label>
-                        <input type="text" id="tipo" name="tipo">
+                        <label for="tipo"> Tipo:</label><!--    -->
+                        <input type="text" id="tipo" name="tipo"><!--    -->
         
-                        <label for="imagem"> Link da Imagem:</label>
+                        <label for="imagem"> Link da Imagem:</label><!--    -->
                         <input type="text" id="imagem" name="imagem">
         
-                        <button id="btnCadastrar" type="submit"> Cadastrar</button>
+                        <button id="btnCadastrar" type="submit"> Cadastrar</button><!--    -->
                        
         
                     </form>
                      
-                    <% } else { %>
+                    <% } else { %><!-- ESSA CONDIÇÃO E QUANDO CLICAR EM EDITAR AI MOSTRA A PAGINA DE ATUALIZAR    -->
         
-                        <h2>atualização  ovo pokemon</h2>
-                    <form action="/update/<%= pokemon.id %>" method="post">
+                        <h2>Atualizar  Novo Pokemon</h2>
+                    <form action="/update/<%= pokemon.id %>" method="post"><!-- manda PARA SER FEITO A ATUALIZAÇÃO    -->
                       
         
-                        <label for="nome"> Nome:</label>
-                        <input type="text" id="nome" name="nome" value="<%= pokemon.nome %>">
+                        <label for="nome"> Nome:</label><!--    -->
+                        <input type="text" id="nome" name="nome" value="<%= pokemon.nome %>"><!--  o value envia os valores do pokemon  -->
         
-                        <label for="descricao"> Descrição:</label>
+                        <label for="descricao"> Descrição:</label><!--    -->
                         <input type="text" id="descricao" name="descricao" value="<%= pokemon.descricao %> " >
         
                         <label for="tipo"> Tipo:</label>
-                        <input type="text" id="tipo" name="tipo" value="<%= pokemon.tipo %> ">
+                        <input type="text" id="tipo" name="tipo" value="<%= pokemon.tipo %> "><!--    -->
         
                         <label for="imagem"> Link da Imagem:</label>
-                        <input type="text" id="imagem" name="imagem" value="<%= pokemon.imagem %> ">
+                        <input type="text" id="imagem" name="imagem" value="<%= pokemon.imagem %> "><!--    -->
         
-                        <button id="btnAtualizar" type="submit"> Atualizar</button>
+                        <button id="btnAtualizar" type="submit"> Atualizar</button><!--  quando apertar em atualizar manda apara a pagina UPDATE  -->
         
                         
         
@@ -80,24 +91,28 @@
         <section id="cards">
                  <h2>Lista de Pokemons</h2>
 
-            <% pokedex.forEach((pokemon) => { %>
-               <div class="card">
+            <% pokedex.forEach((pokemon) => { %> <!-- aqui esta chamando o array POKEDEX que foi criado atraves do FOREACH o >>>POKEMON são itens<<-->
+               <div class="card"> <!--dentro dessa DIV mostra todos os objetos do ARRAY POKEDEX-->
                    
-                   <img cl src="<%= pokemon.imagem %>" alt="">
+                   <img cl src="<%= pokemon.imagem %>" alt=""> <!-- o POKEMON >> São itens que tem em meu array. pokemon.imagem o (.imgem) são os itens do pokemon e CADA ITEM E UM OBJETO-->
                    <h3> <%= pokemon.nome %> </h3>
                    <p class="descricao" > <%= pokemon.descricao %> </p>
                    <p> Tipo: <%= pokemon.tipo %> </p>
 
-                   <a href="/detalhes/<%= pokemon.id %>"> Editar</a>
-                    
+                   <a  id="editar" href="/detalhes/<%= pokemon.id %>"> Editar</a> <!-- envia o ID (identidade )para ser editado no botão editar-->
+                   <a id="apagar" href="/delete/<%= pokemon.id %>"> Apagar</a>
                </div>
        
-              <%})  %>
+              <%})  %> <!-- FECHOU O ARRAY POKEDEX-->
         </section>
        
         
      </main>
 
-
+     <footer>
+         <p>Todos os direitos preservados  &copy; Meu: <a target="_blank" href="https://www.linkedin.com/in/robervan-souza/">LinkedIn</a></p>
+         <p>Meu: <a target="_blank" href="https://github.com/RobervanSouza"> Github</a></p>
+         <p>Dados retirados do site: <a target="_blank" href="https://www.pokemon.com/br/pokedex/">Pokedex </a></p>
+     </footer>
 </body>
 </html>

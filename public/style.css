@@ -8,51 +8,89 @@
     margin: 0;
     padding: 0;
     font-family: 'B612 Mono', monospace;
-
-}
-header {
-    padding: 1rem;
-    background-color: red;
+    scroll-behavior: smooth; /* fica mais leve rolando a pagina-*/
 }
 
-header h1 {
+
+header img{
+    width: 100%;
+    margin-top: 5.5rem;
+}
+nav {
+    width: 100%;
+    background-color: #d30a40;
+    position: fixed; /* fica com a posição fixa*/
+    z-index: 9999; /* fica acima de tudo*/
+    
+
+    
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li  {
+  padding: 0.8rem;
+
+}
+nav img{
+    width: 3rem;
+    
+}
+
+nav  h1 {
     color: white;
     font-size: 3rem;
     text-align: center;
+} 
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
 }
+
+
+    
+
 main{
-    margin: 0 10rem 0 10rem;
+    margin: 0 10rem 0 10rem; /* margens laterais*/
 
 
 }
 
-section#cards{
-    flex-wrap: wrap;
-    display: flex; /* cada item do lado do outro*/
-    justify-content: space-evenly;
-    margin-top: 2rem;
+section#cards{ /* para chamar uma ID usa #CARDS*/
+    flex-wrap: wrap;/* quebra a linha e deixar o proximo embaixo   */
+    display: flex; /* cada item do lado do outro, se for adicionar o quarto item então manda para baixo*/
+    justify-content: space-evenly; /* ESPAÇO ENTRE ELES*/
+    margin-top: 2rem; /* para ficar mais distante do meu menu "header"*/
     
 }
 
-section#cards div.card{
+section#cards div.card{ /* para chamar ID usa (#) para chamar class usa(.)*/
     width: 20rem;
-    box-shadow: inset 0 0 1em gold, 0 0 1em red;
-    padding: 0.5rem;
+    box-shadow: inset 0 0 1em gold, 0 0 1em red; /* borda ao redor da imagem*/
+    padding: 0.5rem;  /* para distanciar o testo da imagem*/
     
 }
 
 
 
-section#cards h2{
-    width: 100%;
-    text-align: center;
+section#cards h2{   /*   */ 
+    width: 100%;   /*   */
+    text-align: center;/*   */
     margin: 3rem;
 
 }
 
 
-section#cards div.card img{
+section#cards div.card img{/*   */
     width: 100%;
+    flex-wrap: wrap;
+    display: flex;
 }
 
 
@@ -65,26 +103,50 @@ section#cards div.card p.descricao{
     margin-bottom: 1rem;
 }
 
-
-section#cards div.card a{
-    padding: 1rem;
-    width: 25%;
-    display: flex;
+/*botao editar*/
+section#cards div.card a#editar{
+    padding: 1rem;/*   */
+    /*   */
+    display: flex;/*   */
     justify-content: center;/* centralizar nome */
-    margin: 0 auto;
+    margin: 0 auto;/*   */
     font-size: 1rem;
     background-color: rgb(137, 196, 235);
     border: solid 1px black;
     color:  black;
-    cursor: pointer;
-    transition: all .3s ease-in-out;
+    cursor: pointer;/*   */
+    transition: all .3s ease-in-out; /* trasição que fica a cor no botão*/ 
     text-align: center;
-    text-decoration: none;
+    text-decoration: none;/*   */
     margin-top: 2rem;
 }
-section#cards div.card a:hover{
+ /* botão apagar*/
+section#cards div.card a#apagar{
+    padding: 1rem;/*   */
+    display: flex;/*   */
+    justify-content: center;/* centralizar nome */
+    margin: 0 auto;/*   */
+    font-size: 1rem;
+    background-color: rgb(133, 224, 28);
+    border: solid 1px rgb(45, 6, 97);
+    color:   #d30a40;
+    cursor: pointer;/*   */
+    transition: all .3s ease-in-out; /* trasição que fica a cor no botão*/ 
+    text-align: center;
+    text-decoration: none;/*   */
+    margin-top: 2rem;
+}
+
+
+section#cards div.card a#editar:hover{
     background-color: yellow;
     color: red;
+    border:  solid 2px blue;
+}
+
+section#cards div.card a#apagar:hover{
+    background-color: rgb(20, 175, 236);
+    color: rgb(248, 239, 239);
     border:  solid 2px blue;
 }
 
@@ -146,4 +208,25 @@ section#cadastro  form button{
 section#cadastro  form button:hover{
     background-color: yellow;
     color: black;
+}
+
+
+footer{
+    background-color: #d30a40;
+    padding: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+footer p {
+    width: 100%;
+    color: yellow;
+    text-align: center;
+    padding: .2rem;
+}
+
+footer  p a{
+    text-decoration: none;
+    color: blue;
+    font-size: 1.2rem;
 }
