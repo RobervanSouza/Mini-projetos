@@ -1,8 +1,12 @@
+require("dotenv").config(); /* configura o DETENV */
+const port = process.env.PORT || 3000; /* a aplicação vai ser aberta no  PROCESS.ENV.PORT ou a porta 3000 */
 const express = require("express");/* riquare > importa arquivos da pasta express como o INDEX.JS LICENÇA, READM */
 
 const path = require("path"); /*É uma biblioteca.  caminho */
 
 const app = express();   /* APP executa o EXPRESS*/
+
+
 
 app.set("view engine", "ejs"); /*  O VIEW mostra o caminho para para  o INDEX.EJS que e o html que vai ser executado quando for chamado no RES.RENDER(INDEX)*/
 
@@ -98,6 +102,6 @@ app.get("/delete/:id", (req, res) => { /* o cliente pediu para deletar. Então c
 
 
 
-app.listen(3000, () =>  
-  console.log(" Servidor rodando em http://localhost:3000")
+app.listen(port, () =>  
+  console.log(` Servidor rodando em http://localhost:${port}`)
 );
